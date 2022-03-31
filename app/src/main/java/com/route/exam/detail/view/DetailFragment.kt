@@ -49,6 +49,7 @@ class DetailFragment: BaseFragment() {
         addFragment(AttributeFragment(), R.id.linRatingFragment,"Rating")
         addFragment(ImageFragment(), R.id.imageFragment,"Image")
         addFragment(POIFragment(), R.id.poiFragment,"POI")
+        addFragment(SponsorFragment(), R.id.sponsorFragment,"Sponsor")
     }
 
 }

@@ -16,8 +16,9 @@
         <entry key="app/src/main/res/layout/fragment_detail.xml" value="0.1171875" />
         <entry key="app/src/main/res/layout/fragment_horizontal_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_rating.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_sponsor.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_image.xml" value="0.10260416666666666" />
-        <entry key="app/src/main/res/layout/item_poi.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_poi.xml" value="0.22" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.1234375" />
       </map>
     </option>

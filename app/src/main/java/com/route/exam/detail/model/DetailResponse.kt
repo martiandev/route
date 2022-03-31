@@ -89,6 +89,10 @@ data class Attribute(
     val copyRight:String?,
     @SerializedName("Alt-tekst")
     val alternateText:String?,
+    @SerializedName("website")
+    val website:String?,
+    @SerializedName("logo")
+    val logo:String?,
 ){
     companion object{
         val TRANSPO_BIKE = "BICYCLING"
@@ -104,12 +108,16 @@ data class Relationships(
     val routePoints: RoutePoints?,
     @SerializedName("categories")
     val categories: Categories?,
+    @SerializedName("category")
+    val category: Category?,
     @SerializedName("mainImage")
     val mainImage: MainImage?,
     @SerializedName("images")
     val images: Images?,
     @SerializedName("poi")
     val poi: POI?,
+    @SerializedName("mainPicture")
+    val mainPicture: MainImage?,
 )
 
 data class Group(
@@ -120,6 +128,11 @@ data class Group(
 data class StartPoint(
     @SerializedName("data")
     val data:Data
+)
+data class Category(
+    @SerializedName("data")
+    val data:Data,
+    var cat:Category?
 )
 
 
@@ -135,7 +148,8 @@ data class Categories(
 
 data class MainImage(
     @SerializedName("data")
-    val data:Data
+    val data:Data,
+    var image:Image
 )
 data class POI(
     @SerializedName("data")
@@ -145,4 +159,9 @@ data class POI(
 data class Images(
     @SerializedName("data")
     val data:List<Data>
+)
+
+data class Image(
+    @SerializedName("data")
+    val data:Data
 )

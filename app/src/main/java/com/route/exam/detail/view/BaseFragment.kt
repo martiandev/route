@@ -2,6 +2,7 @@ package com.route.exam.detail.view
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -18,6 +19,7 @@ open abstract class BaseFragment:Fragment() {
         @JvmStatic
         @BindingAdapter("routeImage")
         fun loadImage(view: ImageView, routeImage: String?) {
+            Log.d("IMAGE:","Image:"+routeImage)
             Glide.with(view.context)
                 .load(routeImage)
                 .into(view)

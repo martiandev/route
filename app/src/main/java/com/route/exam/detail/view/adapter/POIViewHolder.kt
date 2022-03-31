@@ -21,7 +21,10 @@ class POIViewHolder(var binding: ItemPoiBinding) : RecyclerView.ViewHolder(bindi
     }
     fun bind(data: Data)
     {
-        binding.url =data.attribute!!.url
+        binding.description =data.attribute!!.description
+        binding.name =data!!.attribute!!.name
+        binding.categoryName =data.relationships!!.category!!.cat!!.data.attribute!!.name
+        binding.url =data.relationships!!.mainPicture!!.image.data.attribute!!.url
     }
 
 

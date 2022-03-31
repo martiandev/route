@@ -26,12 +26,6 @@ class POIFragment:BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.title = "Places of Interest"
         binding.rvItems.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        binding.rvItems.addItemDecoration(
-            DividerItemDecoration(
-                activity,
-                DividerItemDecoration.HORIZONTAL
-            )
-        )
 
     }
 
