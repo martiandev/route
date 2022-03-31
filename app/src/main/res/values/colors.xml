@@ -10,6 +10,9 @@
 
     //Route
     <color name="primary">#4DC9D0</color>
+    <color name="details_bg">#faf7f3</color>
+    <color name="melon">#ff885d</color>
+    <color name="beige">#faf7f3</color>
 
 
 </resources>

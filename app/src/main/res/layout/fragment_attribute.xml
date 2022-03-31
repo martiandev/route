@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.text.Html"/>
+        <variable
+            name="attribute"
+            type="com.route.exam.detail.model.Attribute" />
+        <variable
+            name="seeMore"
+            type="Boolean" />
+        <variable
+            name="vm"
+            type="com.route.exam.detail.viewmodel.DetailViewModel" />
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+            <ImageView
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@{attribute.averageRating>0?@drawable/ic_icon_review_score_star_selected:@drawable/ic_icon_review_score_star}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@{attribute.averageRating>1?@drawable/ic_icon_review_score_star_selected:@drawable/ic_icon_review_score_star}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@{attribute.averageRating>2?@drawable/ic_icon_review_score_star_selected:@drawable/ic_icon_review_score_star}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@{attribute.averageRating>3?@drawable/ic_icon_review_score_star_selected:@drawable/ic_icon_review_score_star}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@{attribute.averageRating>4?@drawable/ic_icon_review_score_star_selected:@drawable/ic_icon_review_score_star}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <TextView
+            android:text="@{`Based on `+attribute.ratingCount+(attribute.ratingCount>0?` reviews`:` review`)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glV1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.25"
+                />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glV2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.50"
+
+                />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/glV3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.75"
+
+                />
+                <ImageView
+                    android:id="@+id/imgDistance"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/glV1"
+                    android:src="@drawable/ic_icon_distance"
+                    android:layout_width="@dimen/attribute_icon_size"
+                    android:layout_height="@dimen/attribute_icon_size"/>
+            <TextView
+                android:id="@+id/tvDistance"
+                app:layout_constraintTop_toBottomOf="@+id/imgDistance"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/glV1"
+                android:text="@{(attribute.totalDistance/1000)+` km`}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/imgTime"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/glV1"
+                app:layout_constraintRight_toLeftOf="@+id/glV2"
+                android:src="@drawable/ic_icon_time"
+                android:layout_width="@dimen/attribute_icon_size"
+                android:layout_height="@dimen/attribute_icon_size"/>
+            <TextView
+                android:id="@+id/tvTime"
+                app:layout_constraintTop_toBottomOf="@+id/imgTime"
+                app:layout_constraintLeft_toRightOf="@+id/glV1"
+                app:layout_constraintRight_toLeftOf="@+id/glV2"
+                android:text="@{(attribute.elevationMeters)+` u`}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/imgCal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="@+id/glV2"
+                app:layout_constraintRight_toLeftOf="@+id/glV3"
+                android:src="@drawable/ic_icon_callorie"
+                android:layout_width="@dimen/attribute_icon_size"
+                android:layout_height="@dimen/attribute_icon_size"/>
+            <TextView
+                android:id="@+id/tvCal"
+                app:layout_constraintTop_toBottomOf="@+id/imgCal"
+                app:layout_constraintLeft_toRightOf="@+id/glV2"
+                app:layout_constraintRight_toLeftOf="@+id/glV3"
+                android:text="@{(attribute.elevationMeters)+` kcal`}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/imgElevation"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/glV3"
+                app:layout_constraintRight_toRightOf="parent"
+                android:src="@drawable/ic_icon_elevation"
+                android:layout_width="@dimen/attribute_icon_size"
+                android:layout_height="@dimen/attribute_icon_size"/>
+            <TextView
+                android:id="@+id/tvElevation"
+                app:layout_constraintTop_toBottomOf="@+id/imgElevation"
+                app:layout_constraintLeft_toRightOf="@+id/glV3"
+                app:layout_constraintRight_toRightOf="parent"
+                android:text="@{(attribute.elevationMeters)+` m`}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvDescriptionTitle"
+            android:text="Description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+<!--        android:text="@{Html.fromHtml(seeMore?attribute.description:attribute.shortDescription)}"-->
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:text="@{Html.fromHtml(``+(seeMore?attribute.description:attribute.shortDescription)+``)}"
+            android:maxLines="@{seeMore?1000:7}"
+            android:ellipsize="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btMore"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:onClick="@{() -> vm.seeMore()}"
+            android:layout_width="wrap_content"
+            android:padding="4dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvMore"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="Lees Meer"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:textColor="@color/primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:src="@drawable/ic_icon_chevron"
+                app:layout_constraintLeft_toRightOf="@+id/tvMore"
+                app:layout_constraintTop_toTopOf="@+id/tvMore"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                app:layout_constraintBottom_toBottomOf="@+id/tvMore"
+                android:layout_marginLeft="8dp"
+                android:rotation="@{seeMore?180:0}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+</layout>
